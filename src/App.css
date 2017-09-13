@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 30px;
+  float: left;
+}
+.opt{
+  margin: 10px;
+}
+.App-header {
+  background-color:white;
+  height: 40px;
+  padding: 10px;
+  color: black;
+  text-align:center ;
+}
+.App-header2 {
+  background-color: black;
+  height: 40px;
+  padding: 10px;
+  color: white;
+  text-align:left ;
+}
+
+.App-intro {
+  font-size:medium;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.Product{
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+  display: inline-block;
+  color: black;
+}
+.img{
+  height: 80px;
+  width: 80px;
+  background-color: whitesmoke;
+  margin:10px;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
