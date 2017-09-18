@@ -1,31 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Product from './Product';
+import ProductList from './ProductList';
+import {Link} from 'react-router';
+
 class App extends Component {
   render() {
-      console.count();
-      const Products = (
-          <div className="App-intro">
-
-              {this.props.posts.map((post) =>
-                  <span key={post.ProductName}>
-                      <Product name={post.ProductName} text={post.ProductDescription} src={post.ProductImage}/>
-                  </span>
-              )}
-          </div>
-      );
     return (
       <div className="App">
-        <div className="App-header">
+
+          <div className="App-header">
+
             <img src={logo} className="App-logo" alt="logo" />
-            <span className="opt">home</span> <span className="opt">catalog</span> <span className="opt">about</span> <span className="opt">contact</span>
-        </div>
-          <div className="App-header2">
-              <p> categoriez : <span className="opt">option1</span> <span className="opt">option2</span> <span className="opt">option2</span> <span className="opt">option2</span></p>
+              <span className="opt">home</span> <Link to={`/`}><span className="opt">catalog</span></Link> <Link to={`/CartPage`}><span className="opt">CartPage</span></Link> <span className="opt">contact</span>
           </div>
-          <h3>- the catalog -</h3>
-          {Products}
+
+          {React.cloneElement(this.props.children,{posts:ProductList})}
       </div>
     );
   }
