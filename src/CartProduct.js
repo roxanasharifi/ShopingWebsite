@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import ProductList from './ProductList';
 class CartProduct extends Component {
     DeleteFromCart(productindex) {
         var json = JSON.parse(localStorage.cart);
@@ -17,12 +17,12 @@ class CartProduct extends Component {
         const index = this.props.index;
         const ProductName = this.props.ProductName;
         const ProductDescription =  this.props.ProductDescription ;
-        const ImageSrc = this.props.ProductImage;
+        const ImageSrc = ProductList[index].ProductImage;
         const ProductPrice =this.props.ProductPrice;
         const ProductInformation ={index,ProductName,ProductDescription,ImageSrc};
         return (
             <div className="CartProduct">
-                <img src={ImageSrc} className="img" alt="pName" /><b> {ProductName}</b> ({ProductDescription}) - -  {ProductPrice}  - - <button className="DelBtn" onClick={(e) => this.DeleteFromCart(ProductInformation.index)}>Delete</button>
+                <img src={ImageSrc} className="Cartimg" alt="pName" /><b> {ProductName}</b> ({ProductDescription}) - -  ${ProductPrice}  - - <button className="DelBtn" onClick={(e) => this.DeleteFromCart(ProductInformation.index)}>Delete</button>
             </div>
         );
     }

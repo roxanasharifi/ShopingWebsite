@@ -8,18 +8,20 @@ class Product extends Component {
             localStorage.cart = JSON.stringify([]);
         }
             const data = JSON.parse(localStorage.cart);
+            localStorage.setItem('TotalPrice',obj.TotalPrice);
             data.push(obj);
             localStorage.cart = JSON.stringify(data);
             console.log(JSON.parse(localStorage.cart));
     }
     render() {
-
+        let TotalPrice=0;
         const index = this.props.id;
         const ProductName = this.props.ProductName;
         const ProductDescription =  this.props.ProductDescription ;
         const ImageSrc = this.props.ProductImage;
         const ProductPrice = this.props.ProductPrice;
-        const ProductInformation ={index,ProductName,ProductDescription,ImageSrc,ProductPrice};
+        TotalPrice +=(this.props.ProductPrice);
+        const ProductInformation ={index,ProductName,ProductDescription,ImageSrc,ProductPrice,TotalPrice};
         return (
             <div className="Product">
                 <img src={ImageSrc} className="img" alt="pName" />

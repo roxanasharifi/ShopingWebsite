@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import CartProduct from './CartProduct';
-class CartPage extends Component {
 
+
+class CartPage extends Component {
     render() {
         const productCart = JSON.parse(localStorage.cart);
+        let totalPrice =0;
+        productCart.map((post) => {
+            totalPrice += post.ProductPrice;
+        });
         const Products = (
             <div className="carts">
                 <h1>- The Cart  -</h1>
@@ -15,6 +20,7 @@ class CartPage extends Component {
                      </span>
                 )}
                 <hr width="80%"/>
+                <h3>Total price:</h3>${totalPrice}
             </div>
         );
         return (
