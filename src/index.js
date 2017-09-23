@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import AdminPage from './AdminPage';
 import Catalog from './Catalog';
 import CartPage from './CartPage';
 import AboutProduct from './AboutProduct';
@@ -14,7 +15,7 @@ ReactDOM.render(
             <IndexRoute component={Catalog}/>
             <Route path="/AboutProduct/:value" component={AboutProduct}/>
             <Route path="/CartPage" component={CartPage}/>
-
+            <Route path="/AdminPage" component={AdminPage}/>
         </Route>
     </Router>,
     document.getElementById('root')

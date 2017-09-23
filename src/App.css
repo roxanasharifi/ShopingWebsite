@@ -73,3 +73,33 @@
   background-color: whitesmoke;
   margin:10px;
 }
+.AddForm{
+
+}
+.txtbox{
+  margin-right: 16px;
+}
+.txtbox2{
+  margin:15px;
+  width:300px;
+}
+.btns{
+  margin-left: 14px;
+  width:100px;
+}
+.AddForm
+{ width : 80%;
+  background-color: white;
+  min-height:500px;
+  margin-left: 120px;
+  padding: 30px;
+
+
+}
+.main
+{
+  background-color: #222222;
+  height: 100%;
+  padding: 40px;
+
+}

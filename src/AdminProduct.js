@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ProductList from './ProductList';
-class CartProduct extends Component {
+class AdminProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,16 +11,15 @@ class CartProduct extends Component {
             ProductPrice :props.ProductPrice
         };
     }
-    DeleteFromCart(productindex) {
-        var json = JSON.parse(localStorage.cart);
+    DeleteFromProduct(productindex) {
+        var json = JSON.parse(localStorage.Product);
         for (let i=0; i < json.length; i++){
             if (json[i].index == productindex){
                 json.splice(i,1);
             }
         }
         console.log(json);
-        localStorage.cart= JSON.stringify(json);
-        this.state = {ProductName: this.props.ProductName};
+        localStorage.Product= JSON.stringify(json);
         window.location.reload();
     }
     render() {
@@ -31,10 +30,10 @@ class CartProduct extends Component {
         const ProductPrice = this.state.ProductPrice;
         const ProductInformation ={index,ProductName,ProductDescription,ImageSrc};
         return (
-            <div className="CartProduct">
-                <img src={ImageSrc} className="Cartimg" alt="pName" /><b> {ProductName}</b> ({ProductDescription}) - -  ${ProductPrice}  - - <button className="DelBtn" onClick={(e) => this.DeleteFromCart(ProductInformation.index)}>Delete</button>
+            <div className="AdminProduct">
+                <img src={ImageSrc} className="Cartimg" alt="pName" /><b> {ProductName}</b> ({ProductDescription}) - -  ${ProductPrice}  - - <button className="DelBtn" onClick={(e) => this.DeleteFromProduct(ProductInformation.index)}>Delete</button>
             </div>
         );
     }
 }
-export default CartProduct;
+export default AdminProduct;

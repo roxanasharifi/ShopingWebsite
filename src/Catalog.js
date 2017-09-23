@@ -4,11 +4,12 @@ import Product from './Product';
 
 class catalog extends Component {
     render() {
+        let ProductList = JSON.parse(localStorage.Product);
 
         const Products = (
             <div className="App-intro">
 
-                {this.props.posts.map((post) =>
+                {ProductList.map((post) =>
                     <span key={post.ProductName}>
                       <Product {...post}/>
                   </span>

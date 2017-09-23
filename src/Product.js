@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Link} from 'react-router';
-
+import ProductList from './ProductList';
 class Product extends Component {
     AddToCart(obj) {
         if (!localStorage.cart) {
@@ -15,10 +15,10 @@ class Product extends Component {
     }
     render() {
         let TotalPrice=0;
-        const index = this.props.id;
+        const index = this.props.index;
         const ProductName = this.props.ProductName;
         const ProductDescription =  this.props.ProductDescription ;
-        const ImageSrc = this.props.ProductImage;
+        const ImageSrc = ProductList[index].ProductImage;
         const ProductPrice = this.props.ProductPrice;
         TotalPrice +=(this.props.ProductPrice);
         const ProductInformation ={index,ProductName,ProductDescription,ImageSrc,ProductPrice,TotalPrice};
