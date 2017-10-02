@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
+
+import '../CSS/App.css';
 import Product from './Product';
+import CategoriesHeader from './CategoriesHeader';
 
 class catalog extends Component {
-    render() {
+    GetCatalogList =()=> {
         let ProductList = JSON.parse(localStorage.Product);
-
-        const Products = (
+        return (
             <div className="App-intro">
-
+                <h3>- the catalog -</h3>
                 {ProductList.map((post) =>
                     <span key={post.ProductName}>
                       <Product {...post}/>
@@ -16,14 +17,12 @@ class catalog extends Component {
                 )}
             </div>
         );
+    }
+    render() {
         return (
-
             <div className="catalog">
-                <div className="App-header2">
-                    <p> categories : <span className="opt">option1</span> <span className="opt">option2</span> <span className="opt">option2</span> <span className="opt">option2</span></p>
-                </div>
-                <h3>- the catalog -</h3>
-                {Products}
+                <CategoriesHeader/>
+                {this.GetCatalogList()}
             </div>
         );
     }

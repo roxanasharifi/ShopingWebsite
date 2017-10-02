@@ -1,9 +1,9 @@
-import photo1 from './photo1.jpg';
-import photo2 from './photo2.jpg';
-import photo3 from './photo3.jpg';
-import photo4 from './photo4.jpg';
-import photo5 from './photo5.jpg';
-import photo6 from './photo6.jpg';
+import photo1 from '../Images/photo1.jpg';
+import photo2 from '../Images/photo2.jpg';
+import photo3 from '../Images/photo3.jpg';
+import photo4 from '../Images/photo4.jpg';
+import photo5 from '../Images/photo5.jpg';
+import photo6 from '../Images/photo6.jpg';
 
 const ProductList = [
     {
