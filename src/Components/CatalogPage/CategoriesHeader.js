@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../CSS/App.css';
+import '../../CSS/App.css';
 
 class CategoriesHeader extends Component {
     render() {
