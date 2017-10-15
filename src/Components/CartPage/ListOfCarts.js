@@ -1,56 +1,38 @@
 import React, { Component } from 'react';
-
-import '../../CSS/App.css';
+import {connect} from 'react-redux';
 import CartProduct from './CartProduct';
+import {DeleteFromCart} from './../../Actions/Actions';
+import '../../CSS/App.css';
 
 class CartProductList extends Component {
-    constructor(props) {
-        super();
-        this.state = {
-            cartProducts :[],
-        };
-    }
-    componentDidMount() {
-        if (localStorage.cart) {
-            this.setState({
-                cartProducts: JSON.parse(localStorage.cart)
-            })
-        }
-    }
-    DeleteFromCart=(productId)=>{
-        const json = this.state.cartProducts.filter((item) => item.ProductId !== productId);
-        this.setState({cartProducts:json});
-        localStorage.cart = JSON.stringify(json);
-    }
-
-    /*GetTotalPrice=()=>{
-
-    }*/
-
-    GetCartProducts =()=>{
+    GetCartTotalPrice = () => {
+        let totalPrice=0 ;
+        const result = this.props.cartProducts.reduce((totalPrice, CartProducts) => {return totalPrice + JSON.parse(CartProducts.ProductPrice);},0);
+        return (<h3>Total price:${result}</h3>);
+    };
+    render(){
+        let {cartProducts,dispatch} = this.props;
         return(
-            <div>
+            <div className="carts">
                 <h1>- The Cart  -</h1>
                 <hr width="80%"/>
-                {this.state.cartProducts.map((post) =>
+                {cartProducts.map((post) =>
                     <span key={post.ProductId}>
                       <CartProduct {...post}/>
-                        <button className="DelBtn" onClick={()=>this.DeleteFromCart(post.ProductId)}>Delete</button><br/>
+                        <button className="DelBtn" onClick={()=> dispatch(DeleteFromCart(post.ProductId))}>Delete</button><br/>
                      </span>
                 )}
                 <hr width="80%"/>
+                {this.GetCartTotalPrice()}<br/>
             </div>
-        );
-    }
-    render(){
-        return(
-            <div className="carts">
-                {this.GetCartProducts()}
-                {/*{this.GetTotalPrice()}*/}<br/>
-            </div>
-
         );
     }
 }
-export default CartProductList;
+const mapStateToProps = (state) => {
+    return {
+        cartProducts: state.cartProducts
+    }
+};
+export default connect(mapStateToProps)(CartProductList)
+
 

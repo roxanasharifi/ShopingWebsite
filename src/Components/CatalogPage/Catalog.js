@@ -1,57 +1,35 @@
-import React, { Component } from 'react';
-
-import '../../CSS/App.css';
+import React,{Component} from 'react';
+import {connect} from 'react-redux';
 import Product from './Product';
 import CategoriesHeader from './CategoriesHeader';
+import {AddToCart} from './../../Actions/Actions';
+import '../../CSS/App.css';
 
-class catalog extends Component {
-    constructor(props) {
-        super();
-        this.state = {
-            cartProducts : [],
-            Products :[]
-        };
-    }
-    componentDidMount() {
-        if (localStorage.cart) {
-            this.setState({
-                cartProducts: JSON.parse(localStorage.cart)
-            })
-        }
-        if (localStorage.Product) {
-            this.setState({
-                Products: JSON.parse(localStorage.Product)
-            })
-        }
-    }
-    GetCatalogList =()=> {
-        return (
-            <div className="App-intro">
-                <h3>- the catalog -</h3>
-                {this.state.Products.map((post) =>
-                    <div className="Product" key={post.ProductId}>
-                        <Product {...post}/>
-                        <button onClick={() => this.AddToCart(post)}>add</button>
-                    </div>
-                )}
-            </div>
-        );
-    }
-
-    AddToCart =(post)=> {
-        const cartProducts = this.state.cartProducts;
-        cartProducts.push(post);
-        localStorage.cart = JSON.stringify(cartProducts);
-        this.setState({cartProducts: cartProducts});
-    }
-
+class Catalog extends Component {
     render() {
+        let {Products} = this.props;
         return (
             <div className="catalog">
                 <CategoriesHeader/>
-                {this.GetCatalogList()}
+                <div className="App-intro">
+                    <h3>- the catalog -</h3>
+                    {Products.map((post) =>
+                        <div className="Product" key={post.ProductId}>
+                            <Product {...post}/>
+                            <button onClick={() =>this.props.AddToCart(post)}>add</button>
+                        </div>
+                    )}
+                </div>
             </div>
         );
     }
 }
-export default catalog;
+const mapStateToProps = (state) => {
+    return {
+        Products: state.Products,
+        cartProducts:state.cartProducts
+
+    }
+};
+export default connect(mapStateToProps,{AddToCart})(Catalog)
+

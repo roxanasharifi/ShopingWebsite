@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-
-import '../../CSS/App.css';
+import React from 'react';
 import Images from '../../Images/ImageList';
+import '../../CSS/App.css';
 
 const CartProduct =({ ProductName, ProductDescription, ProductPrice, ProductImage })=>(
     <div className="CartProduct">
@@ -9,5 +8,4 @@ const CartProduct =({ ProductName, ProductDescription, ProductPrice, ProductImag
         <b> {ProductName}</b> ({ProductDescription}) - -  ${ProductPrice}
     </div>
 );
-
 export default CartProduct;

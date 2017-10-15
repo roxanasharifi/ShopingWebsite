@@ -1,40 +1,24 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux';
+import {AddToCart} from './../../Actions/Actions';
 import '../../CSS/App.css';
-/*import Images from '../../Images/ImageList';*/
 
 class AboutProduct extends Component {
-    constructor(props) {
-        super();
-        this.state = {
-            Products :[]
-        };
-    }
-    componentDidMount() {
-        if (localStorage.Product) {
-            this.setState({
-                Products: JSON.parse(localStorage.Product)
-            })
-        }
-    }
-    /*renderProduct=()=>{
-        const ProductId = this.props.params.ProductId;
-        let productInfo = this.state.Products.filter((item) => item.ProductId !== ProductId );
-        return(
-            <div>
-                <img src={Images[productInfo.ProductImage]} className="ProductImg" alt="pName" />
-                <h3>{productInfo.ProductName}</h3>
-                <p>{productInfo.ProductDescription}</p>
-                <p>${productInfo.ProductPrice}</p>
-            </div>
-        );
-    }*/
     render() {
+        const ProductId = parseInt(this.props.params.ProductId);
+        const product = this.props.Products.find(Product => Product.ProductId === ProductId);
+        console.log(product);
 		return (
             <div className="AboutProduct">
-                {/*{this.renderProduct()}*/}
+                {/*ERROR*/}
+                {/*<h3>{product.ProductName}</h3>*/}
             </div>
         );
     }
 }
-export default AboutProduct;
+const mapStateToProps = (state) => {
+    return {
+        Products: state.Products
+    }
+};
+export default connect(mapStateToProps,{AddToCart})(AboutProduct);
