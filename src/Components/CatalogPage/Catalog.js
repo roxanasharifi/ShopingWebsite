@@ -11,12 +11,12 @@ class Catalog extends Component {
         return (
             <div className="catalog">
                 <CategoriesHeader/>
-                <div className="App-intro">
-                    <h3>- the catalog -</h3>
+                <div className="catalogPage">
+                    <h2>- THE CATALOG -</h2>
                     {Products.map((post) =>
                         <div className="Product" key={post.ProductId}>
                             <Product {...post}/>
-                            <button onClick={() =>this.props.AddToCart(post)}>add</button>
+                            <button className="btn btn-primary" onClick={() =>this.props.AddToCart(post)}>Add to CART</button>
                         </div>
                     )}
                 </div>
@@ -28,7 +28,6 @@ const mapStateToProps = (state) => {
     return {
         Products: state.Products,
         cartProducts:state.cartProducts
-
     }
 };
 export default connect(mapStateToProps,{AddToCart})(Catalog)

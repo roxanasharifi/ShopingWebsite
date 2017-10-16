@@ -8,7 +8,7 @@ class CartProductList extends Component {
     GetCartTotalPrice = () => {
         let totalPrice=0 ;
         const result = this.props.cartProducts.reduce((totalPrice, CartProducts) => {return totalPrice + JSON.parse(CartProducts.ProductPrice);},0);
-        return (<h3>Total price:${result}</h3>);
+        return (<h5>Total price:${result}</h5>);
     };
     render(){
         let {cartProducts,dispatch} = this.props;
@@ -19,7 +19,7 @@ class CartProductList extends Component {
                 {cartProducts.map((post) =>
                     <span key={post.ProductId}>
                       <CartProduct {...post}/>
-                        <button className="DelBtn" onClick={()=> dispatch(DeleteFromCart(post.ProductId))}>Delete</button><br/>
+                        <button className="btn btn-danger" onClick={()=> dispatch(DeleteFromCart(post.ProductId))}>Delete</button><br/>
                      </span>
                 )}
                 <hr width="80%"/>

@@ -1,4 +1,4 @@
-export let ProductReducer = (state =[], action) => {
+export let ProductReducer = (state = localStorage.getItem('Products'), action) => {
     switch (action.type) {
         case 'ADD_TO_PRODUCT':
             return [

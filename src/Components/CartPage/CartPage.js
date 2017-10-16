@@ -3,7 +3,7 @@ import CartProductList from './ListOfCarts';
 import '../../CSS/App.css';
 
 const CartPage = ()=>(
-    <div className="cartList">
+    <div className="cartList align-center">
         <CartProductList />
     </div>
 );

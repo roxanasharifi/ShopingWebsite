@@ -1,26 +1,42 @@
 .App {
   text-align: center;
 }
-
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 30px;
+  height: 20px;
+  width: 100px;
   float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.App-logo-footer {
+  height:70px;
+  width: 300px;
+  margin-top: 20px;
 }
 .opt{
   margin: 10px;
 }
+.opt2{
+  margin: 10px;
+  font-size: smaller;
+
+}
 .App-header {
   background-color:white;
-  height: 40px;
-  padding: 10px;
+  border:2px solid #222222;
+  height: 60px;
+  padding-bottom: 10px;
+  padding-top: 14px;
+  margin-top:10px;
   color: black;
   text-align:center ;
 }
 .App-header2 {
-  background-color: black;
-  height: 40px;
-  padding: 10px;
+  background-color:#222222;
+  height: 42px;
+  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-left: 15px;
   color: white;
   text-align:left ;
 }
@@ -39,8 +55,14 @@
   color: black;
 }
 .img{
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 160px;
+  background-color: whitesmoke;
+  margin:10px;
+}
+.aboutImg{
+  height: 200px;
+  width: 260px;
   background-color: whitesmoke;
   margin:10px;
 }
@@ -53,12 +75,9 @@
   to { transform: rotate(360deg); }
 }
 .carts{
-  width:60%;
-  min-height: 550px;
+  min-height:432px;
+  padding: 30px;
   background-color:white;
-  margin:30px;
-  padding:30px;
-  margin-left:260px;
 }
 .CartProduct{
   margin:30px;
@@ -69,8 +88,8 @@
   background-color: #222222;
 }
 .Cartimg{
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 100px;
   background-color: whitesmoke;
   margin:10px;
 }
@@ -89,22 +108,69 @@
   width:100px;
 }
 .AdminAddForm {
-  width : 80%;
   background-color: white;
-  min-height:500px;
-  margin-left: 120px;
+  min-height:415px;
   padding: 30px;
 
+}
+.AboutProduct{
+  background-color: white;
+  min-height:500px;
+  padding: 30px;
+  border:2px solid #222222;
+  border-top:0;
 
 }
 .main
 {
   background-color: #222222;
-  height: 100%;
   padding: 40px;
 
 }
 .AdminProduct{
   display: inline-block;
   margin-right: 5px;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited
+{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: #222222;
+}
+.footer
+{
+  height: 170px;
+  background-image: url(../Images/footer-bg.png) ;
+  background-size:cover;
+}
+.App-Footer{
+  color: ghostwhite;
+  font-size: smaller;
+  font-style: italic;
+  min-height: 100%;
+
+}
+.catalogPage{
+  padding: 20px;
+  border:2px solid #222222;
+  min-height: 450px;
+}
+.list-inline
+{
+
+  font-size:10px;
+  align-content: center;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  display: inline-block;
+}
+.list-inline a{
+  color:white;
 }
